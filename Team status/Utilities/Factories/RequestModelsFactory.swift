@@ -10,7 +10,7 @@ import Alamofire
 
 extension Request {
 
-    enum ModelsFactory {
+    struct ModelsFactory {
 
         static func getTeam(page: Int) -> Request.Model {
             return Request.Model(

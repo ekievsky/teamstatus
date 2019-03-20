@@ -17,12 +17,5 @@ extension Request {
         let methodType: HTTPMethod
         let parameters: Parameters?
         let encoding: ParameterEncoding
-
-        init(endpoint: String, methodType: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding) {
-            self.endpoint = endpoint
-            self.methodType = methodType
-            self.parameters = parameters
-            self.encoding = encoding
-        }
     }
 }

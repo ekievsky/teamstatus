@@ -1,5 +1,5 @@
 //
-//  TeamServiceImpl.swift
+//  TeamDataProviderService.swift
 //  Team status
 //
 //  Created by Evgenii Kyivskyi on 3/19/19.
@@ -9,8 +9,6 @@
 import Foundation
 
 final class TeamDataProviderService {
-
-    static let shared = ApiService.shared
 
     private let apiService: ApiService
 

@@ -36,8 +36,9 @@ extension Request.Executor: RequestExecuting {
                 case .failure(let error):
                     if (error as NSError).code == NSURLErrorNotConnectedToInternet {
                         completion(Result.failure(TSError.noInternetConnection))
+                    } else {
+                        completion(Result.failure(TSError.generalError))
                     }
-                    completion(Result.failure(TSError.generalError))
                 }
         }
     }

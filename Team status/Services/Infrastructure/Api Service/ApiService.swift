@@ -1,5 +1,5 @@
 //
-//  APIServiceDataProvider.swift
+//  ApiService.swift
 //  Team status
 //
 //  Created by Evgenii Kyivskyi on 2/2/19.
@@ -13,8 +13,6 @@ final class ApiService {
 
     typealias PagingTeamMembersCompletion = (Result<([Member], PagingModel)>) -> Void
     typealias TeamMembersCompletion = (Result<[Member]>) -> Void
-
-    static let shared = ApiService(executor: Request.Executor(), parseService: JSONParserService())
 
     private let requestModelsFactory = Request.ModelsFactory.self
     private let executor: RequestExecuting
