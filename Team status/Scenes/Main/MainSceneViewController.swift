@@ -12,9 +12,7 @@ final class MainSceneViewController: UIViewController {
 
     // MARK: Injections
     private let teamService: TeamDataProviding = TeamDataProviderService(
-        apiService: ApiService(
-            executor: Request.Executor(),parseService: JSONParserService()
-        )
+        apiService: ApiService(executor: Request.Executor(), parseService: JSONParserService())
     )
 
     // MARK: Views
