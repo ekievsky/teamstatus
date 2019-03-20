@@ -17,12 +17,6 @@ final class MainSceneViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tv = UITableView(frame: .zero, style: .plain)
         tv.register(cellType: MainSceneItemCell.self)
-        tv.translatesAutoresizingMaskIntoConstraints = false
-        tv.showsVerticalScrollIndicator = false
-        tv.allowsSelection = false
-        tv.separatorStyle = .none
-        tv.rowHeight = UITableView.automaticDimension
-        tv.estimatedRowHeight = 100
         tv.dataSource = dataSource
         tv.delegate = self
         tv.refreshControl = refreshControl
@@ -37,6 +31,7 @@ final class MainSceneViewController: UIViewController {
 
     private lazy var dataSource: MainSceneDataSource = {
         let ds = MainSceneDataSource()
+        ds.mainSceneItemCellDelegate = self
         return ds
     }()
 
@@ -66,6 +61,24 @@ private extension MainSceneViewController {
     }
 }
 
+// MARK: - MainSceneItemCellDelegate implementation
+extension MainSceneViewController: MainSceneItemCellDelegate {
+
+    func mainSceneItemCellAssignButtonDidClick(_ mainSceneItemCell: MainSceneItemCell, button: UIButton, at indexPath: IndexPath) {
+        let member = dataSource.getMember(at: indexPath)
+        let alert = UIAlertController(
+            title: "Assign",
+            message: "Enter the project that you would like to assing to \(member.firstName) \(member.lastName)",
+            preferredStyle: .alert
+        )
+
+        alert.addTextField(configurationHandler: nil)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in }))
+
+        present(alert, animated: true, completion: nil)
+    }
+}
+
 // MARK: - UITableViewDelegate implementation
 extension MainSceneViewController: UITableViewDelegate {
 
@@ -92,6 +105,13 @@ private extension MainSceneViewController {
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.showsVerticalScrollIndicator = false
+        tableView.estimatedRowHeight = 100
+        tableView.allowsSelection = false
+        tableView.separatorStyle = .none
     }
 
     func setupNavigation() {

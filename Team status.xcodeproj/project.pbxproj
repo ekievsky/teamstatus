@@ -11,7 +11,6 @@
 		56D73EB12241588100D78608 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D73EB02241588100D78608 /* AppDelegate.swift */; };
 		56D73EB82241588300D78608 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56D73EB72241588300D78608 /* Assets.xcassets */; };
 		56D73EBB2241588300D78608 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56D73EB92241588300D78608 /* LaunchScreen.storyboard */; };
-		56D73EC92241594B00D78608 /* Timberjack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D73EC62241594B00D78608 /* Timberjack.swift */; };
 		56D73ECB2241594B00D78608 /* RequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D73EC82241594B00D78608 /* RequestExecutor.swift */; };
 		56D73ED122415A3000D78608 /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D73ECF22415A3000D78608 /* RequestModel.swift */; };
 		56D73ED222415A3000D78608 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D73ED022415A3000D78608 /* Result.swift */; };
@@ -52,7 +51,6 @@
 		56D73EB72241588300D78608 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56D73EBA2241588300D78608 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		56D73EBC2241588300D78608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		56D73EC62241594B00D78608 /* Timberjack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timberjack.swift; sourceTree = "<group>"; };
 		56D73EC82241594B00D78608 /* RequestExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestExecutor.swift; sourceTree = "<group>"; };
 		56D73ECF22415A3000D78608 /* RequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
 		56D73ED022415A3000D78608 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -179,7 +177,6 @@
 		56D73EC52241594B00D78608 /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				56D73EC62241594B00D78608 /* Timberjack.swift */,
 				56D73EC82241594B00D78608 /* RequestExecutor.swift */,
 			);
 			path = Request;
@@ -300,18 +297,18 @@
 		56D73F002241840200D78608 /* Team */ = {
 			isa = PBXGroup;
 			children = (
-				56D73F032241841600D78608 /* TeamServiceImpl */,
+				56D73F032241841600D78608 /* Impl */,
 				56D73F012241841000D78608 /* TeamService.swift */,
 			);
 			path = Team;
 			sourceTree = "<group>";
 		};
-		56D73F032241841600D78608 /* TeamServiceImpl */ = {
+		56D73F032241841600D78608 /* Impl */ = {
 			isa = PBXGroup;
 			children = (
 				56D73F042241842400D78608 /* TeamServiceImpl.swift */,
 			);
-			path = TeamServiceImpl;
+			path = Impl;
 			sourceTree = "<group>";
 		};
 		56D73F1122418C5500D78608 /* Cell */ = {
@@ -482,7 +479,6 @@
 				56D73EFF2241832C00D78608 /* PagingModel.swift in Sources */,
 				56D73F2C2241A48500D78608 /* UIViewController+Alert.swift in Sources */,
 				56D73F2822419A5C00D78608 /* UIColor+Extension.swift in Sources */,
-				56D73EC92241594B00D78608 /* Timberjack.swift in Sources */,
 				56D73F022241841000D78608 /* TeamService.swift in Sources */,
 				56D73F1A2241901A00D78608 /* UIView+Graphic.swift in Sources */,
 				56D73EFD2241823E00D78608 /* ParseServiceImpl.swift in Sources */,

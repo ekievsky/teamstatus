@@ -18,4 +18,9 @@ struct Project {
         self.id = id
         self.projectName = json["project_name"].stringValue
     }
+
+    init(id: Int, projectName: String) {
+        self.id = id
+        self.projectName = projectName
+    }
 }

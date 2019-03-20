@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol MainSceneItemCellDelegate: class {
+    func mainSceneItemCellAssignButtonDidClick(_ mainSceneItemCell: MainSceneItemCell,
+                                               button: UIButton, at indexPath: IndexPath)
+}
+
 final class MainSceneItemCell: UITableViewCell {
 
     @IBOutlet private var shadowView: UIView!
@@ -22,12 +27,17 @@ final class MainSceneItemCell: UITableViewCell {
     @IBOutlet private var toLabel: UILabel!
     @IBOutlet private var skillsLabel: UILabel!
 
+    private var indexPath: IndexPath!
+
+    weak var delegate: MainSceneItemCellDelegate?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         shadowView.applyShadow()
     }
 
-    func configure(with member: Member) {
+    func configure(with member: Member, at indexPath: IndexPath) {
+        self.indexPath = indexPath
         nameLabel.text = "\(member.firstName) \(member.lastName)"
         projectNameLabel.text = member.currentProject.projectName
         managerLabel.text = "\(member.manager.firstName) \(member.manager.lastName)"
@@ -45,5 +55,10 @@ final class MainSceneItemCell: UITableViewCell {
             statusLabel.text = "Working"
             untilContainerView.isHidden = true
         }
+    }
+
+    @IBAction
+    private func assignButtonAction(_ sender: UIButton) {
+        delegate?.mainSceneItemCellAssignButtonDidClick(self, button: sender, at: indexPath)
     }
 }

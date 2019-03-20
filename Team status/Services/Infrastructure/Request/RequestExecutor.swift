@@ -20,18 +20,9 @@ extension Request {
         static let shared = Executor()
 
         private let manager : SessionManager
-
-        private let configuration: URLSessionConfiguration = {
-//            let config = URLSessionConfiguration.default
-//            config.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
-            let config = Timberjack.defaultSessionConfiguration()
-            config.httpAdditionalHeaders = nil
-
-            return config
-        }()
-
+        
         private init() {
-            self.manager = SessionManager(configuration: configuration)
+            self.manager = SessionManager(configuration: .default)
         }
     }
 }

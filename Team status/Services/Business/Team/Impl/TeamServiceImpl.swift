@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TeamServiceImpl {
+final class TeamServiceImpl {
 
     static let shared: TeamService = TeamServiceImpl(apiService: ApiServiceImpl.shared)
 

@@ -10,6 +10,8 @@ import UIKit
 
 final class MainSceneDataSource: NSObject {
 
+    weak var mainSceneItemCellDelegate: MainSceneItemCellDelegate?
+
     private var members: [Member] = []
 
     var pagingModel: PagingModel = .initial
@@ -24,6 +26,10 @@ final class MainSceneDataSource: NSObject {
     func add(members: [Member]) {
         self.members.append(contentsOf: members)
     }
+
+    func getMember(at indexPath: IndexPath) -> Member {
+        return members[indexPath.row]
+    }
 }
 
 // MARK: - UITableViewDataSource implementation
@@ -35,7 +41,8 @@ extension MainSceneDataSource: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(ofType: MainSceneItemCell.self, at: indexPath)
-        cell.configure(with: members[indexPath.row])
+        cell.configure(with: members[indexPath.row], at: indexPath)
+        cell.delegate = mainSceneItemCellDelegate
         return cell
     }
 }
