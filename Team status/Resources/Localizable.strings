@@ -1,0 +1,39 @@
+/* 
+  Localizable.strings
+  Team status
+
+  Created by Evgenii Kyivskyi on 3/20/19.
+  Copyright © 2019 ek. All rights reserved.
+*/
+
+// MARK: - Common
+"common.cancel" = "Cancel";
+"common.ok" = "OK";
+
+// MARK: - Error
+"error.something_wrong" = "Something went wrong";
+"error.parse_error" = "Received data could not be read";
+"error.no_internet_connection" = "The internet connection seems to be offline";
+
+// MARK: - Main Scene
+"main_scene.cell.project_title" = "Project:";
+"main_scene.cell.manager_title" = "Manager:";
+"main_scene.cell.status_title" = "Status:";
+"main_scene.cell.until_title" = "Until:";
+"main_scene.cell.working_hours_title" = "Hours:";
+"main_scene.cell.skills_title" = "Skills:";
+"main_scene.cell.assign_title" = "Assign";
+"main_scene.cell.working_status" = "Working";
+"main_scene.cell.on_holidays_status" = "On holidays";
+
+"main_scene.assing_input_alert.title" = "Assign";
+"main_scene.assing_input_alert.message" = "Enter the project that you would like to assing to %@";
+"main_scene.title" = "Team status";
+"main_scene.bar_button.title" = "Filter";
+
+"main_scene.action_sheet.title" = "Please select filter";
+"main_scene.action_sheet.action.get_list" = "Get list";
+"main_scene.action_sheet.action.show_working" = "Show working";
+"main_scene.action_sheet.action.show_holidays" = "Show holidays";
+"main_scene.action_sheet.action.search_by_project" = "Search by project";
+"main_scene.action_sheet.action.search_by_skill" = "Search by Skill";
