@@ -67,8 +67,8 @@ extension MainSceneViewController: MainSceneItemCellDelegate {
     func mainSceneItemCellAssignButtonDidClick(_ mainSceneItemCell: MainSceneItemCell, button: UIButton, at indexPath: IndexPath) {
         let member = dataSource.getMember(at: indexPath)
         let alert = UIAlertController(
-            title: "Assign",
-            message: "Enter the project that you would like to assing to \(member.firstName) \(member.lastName)",
+            title: Strings.MainScene.AssingInputAlert.title,
+            message: Strings.MainScene.AssingInputAlert.message("\(member.firstName) \(member.lastName)"),
             preferredStyle: .alert
         )
 
@@ -122,7 +122,7 @@ private extension MainSceneViewController {
         )
         navigationItem.rightBarButtonItem = button
         filterButton = button
-        navigationItem.title = "Team status"
+        navigationItem.title = Strings.MainScene.title
     }
 }
 
@@ -131,32 +131,32 @@ private extension MainSceneViewController {
 
     func showActionSheet() {
         let actioSheet = UIAlertController(
-            title: "Please select filter",
+            title: Strings.MainScene.ActionSheet.title,
             message: nil,
             preferredStyle: .actionSheet
         )
 
-        let list = UIAlertAction(title: "Get list", style: .default) { [weak self] _ in
+        let list = UIAlertAction(title: Strings.MainScene.ActionSheet.Action.getList, style: .default) { [weak self] _ in
             self?.getTeam(shouldShowLoading: true)
         }
 
-        let working = UIAlertAction(title: "Show working", style: .default) { [weak self] _ in
+        let working = UIAlertAction(title: Strings.MainScene.ActionSheet.Action.showWorking, style: .default) { [weak self] _ in
             self?.getWorking()
         }
 
-        let onHolidays = UIAlertAction(title: "Show holidays", style: .default) { [weak self] _ in
+        let onHolidays = UIAlertAction(title: Strings.MainScene.ActionSheet.Action.showHolidays, style: .default) { [weak self] _ in
             self?.getOnHolidays()
         }
 
-        let projectSearch = UIAlertAction(title: "Search by project", style: .default) { [weak self] _ in
+        let projectSearch = UIAlertAction(title: Strings.MainScene.ActionSheet.Action.searchByProject, style: .default) { [weak self] _ in
             self?.searchByProject(1)
         }
 
-        let skillSearch = UIAlertAction(title: "Search by Skill", style: .default) { [weak self] _ in
+        let skillSearch = UIAlertAction(title: Strings.MainScene.ActionSheet.Action.searchBySkill, style: .default) { [weak self] _ in
             self?.searchBySkill("")
         }
 
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: Strings.Common.cancel, style: .cancel, handler: nil)
 
         actioSheet.addAction(list)
         actioSheet.addAction(working)

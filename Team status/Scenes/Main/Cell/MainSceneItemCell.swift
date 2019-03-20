@@ -18,14 +18,28 @@ final class MainSceneItemCell: UITableViewCell {
     @IBOutlet private var shadowView: UIView!
 
     @IBOutlet private var nameLabel: UILabel!
+
+    @IBOutlet private var projectTitleLabel: UILabel!
     @IBOutlet private var projectNameLabel: UILabel!
+
+    @IBOutlet private var managerTitleLabel: UILabel!
     @IBOutlet private var managerLabel: UILabel!
+
+    @IBOutlet private var statusTitleLabel: UILabel!
     @IBOutlet private var statusLabel: UILabel!
+
+    @IBOutlet private var untilTitleLabel: UILabel!
     @IBOutlet private var untilContainerView: UIView!
     @IBOutlet private var untilLabel: UILabel!
+
+    @IBOutlet private var workingHoursTitleLabel: UILabel!
     @IBOutlet private var fromLabel: UILabel!
     @IBOutlet private var toLabel: UILabel!
+
+    @IBOutlet private var skillsTitleLabel: UILabel!
     @IBOutlet private var skillsLabel: UILabel!
+
+    @IBOutlet private var assignButton: UIButton!
 
     private var indexPath: IndexPath!
 
@@ -34,6 +48,7 @@ final class MainSceneItemCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         shadowView.applyShadow()
+        setupLocalization()
     }
 
     func configure(with member: Member, at indexPath: IndexPath) {
@@ -47,12 +62,12 @@ final class MainSceneItemCell: UITableViewCell {
 
         if member.isOnHolidays {
             statusLabel.textColor = .accentRed
-            statusLabel.text = "On Holidays"
+            statusLabel.text = Strings.MainScene.Cell.onHolidaysStatus
             untilLabel.text = "\(member.onHolidaysTill.fullDay)"
             untilContainerView.isHidden = false
         } else {
             statusLabel.textColor = .accentGreen
-            statusLabel.text = "Working"
+            statusLabel.text = Strings.MainScene.Cell.workingStatus
             untilContainerView.isHidden = true
         }
     }
@@ -60,5 +75,17 @@ final class MainSceneItemCell: UITableViewCell {
     @IBAction
     private func assignButtonAction(_ sender: UIButton) {
         delegate?.mainSceneItemCellAssignButtonDidClick(self, button: sender, at: indexPath)
+    }
+}
+
+private extension MainSceneItemCell {
+    func setupLocalization() {
+        projectTitleLabel.text = Strings.MainScene.Cell.projectTitle
+        managerTitleLabel.text = Strings.MainScene.Cell.managerTitle
+        statusTitleLabel.text = Strings.MainScene.Cell.statusTitle
+        untilTitleLabel.text = Strings.MainScene.Cell.untilTitle
+        workingHoursTitleLabel.text = Strings.MainScene.Cell.workingHoursTitle
+        skillsTitleLabel.text = Strings.MainScene.Cell.skillsTitle
+        assignButton.setTitle(Strings.MainScene.Cell.assignTitle, for: .normal)
     }
 }

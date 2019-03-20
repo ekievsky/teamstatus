@@ -259,16 +259,23 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="assignButton" destination="If0-0I-Sw1" id="Kum-zq-FYm"/>
                 <outlet property="fromLabel" destination="2wr-jA-APx" id="gPB-Pp-9ha"/>
                 <outlet property="managerLabel" destination="z9W-jR-puh" id="dNa-ZN-UJ4"/>
+                <outlet property="managerTitleLabel" destination="Xqa-KR-U3P" id="BcY-aP-GoW"/>
                 <outlet property="nameLabel" destination="ccD-L5-aEb" id="xB5-KI-MAZ"/>
                 <outlet property="projectNameLabel" destination="iqf-IE-S4t" id="G55-vs-HxO"/>
+                <outlet property="projectTitleLabel" destination="rHj-ew-xew" id="qER-DA-JNo"/>
                 <outlet property="shadowView" destination="QzN-v5-BKp" id="nky-60-YWV"/>
                 <outlet property="skillsLabel" destination="MBl-6m-boj" id="HUi-1x-6I7"/>
+                <outlet property="skillsTitleLabel" destination="ioZ-HJ-2PT" id="tvb-lH-0nE"/>
                 <outlet property="statusLabel" destination="63p-VH-WSO" id="jC1-x1-bmw"/>
+                <outlet property="statusTitleLabel" destination="xgx-HD-RRh" id="bUV-vZ-86M"/>
                 <outlet property="toLabel" destination="raf-wn-6hu" id="JCf-4j-Kco"/>
                 <outlet property="untilContainerView" destination="usI-fW-qpn" id="5cU-8n-bR1"/>
                 <outlet property="untilLabel" destination="dEn-S8-QSY" id="NLi-k9-nb0"/>
+                <outlet property="untilTitleLabel" destination="kwK-bE-2Nz" id="Il6-WJ-wWQ"/>
+                <outlet property="workingHoursTitleLabel" destination="K31-BJ-Byw" id="nrj-i3-R4U"/>
             </connections>
             <point key="canvasLocation" x="164" y="125.4872563718141"/>
         </tableViewCell>
