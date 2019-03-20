@@ -8,29 +8,29 @@
 
 import Foundation
 
-enum Strings {
+struct Strings {
 
-    enum Common {
+    struct Common {
         static let cancel = Strings.localizedString("Localizable", "common.cancel")
         static let ok = Strings.localizedString("Localizable", "common.ok")
     }
 
-    enum Error {
+    struct Error {
         static let noInternetConnection = Strings.localizedString("Localizable", "error.no_internet_connection")
         static let parseError = Strings.localizedString("Localizable", "error.parse_error")
         static let somethingWrong = Strings.localizedString("Localizable", "error.something_wrong")
     }
 
-    enum MainScene {
+    struct MainScene {
         static let title = Strings.localizedString("Localizable", "main_scene.title")
 
-        enum BarButton {
+        struct BarButton {
             static let title = Strings.localizedString("Localizable", "main_scene.bar_button.title")
         }
         
-        enum ActionSheet {
+        struct ActionSheet {
             static let title = Strings.localizedString("Localizable", "main_scene.action_sheet.title")
-            enum Action {
+            struct Action {
                 static let getList = Strings.localizedString("Localizable", "main_scene.action_sheet.action.get_list")
                 static let searchByProject = Strings.localizedString("Localizable", "main_scene.action_sheet.action.search_by_project")
                 static let searchBySkill = Strings.localizedString("Localizable", "main_scene.action_sheet.action.search_by_skill")
@@ -39,14 +39,14 @@ enum Strings {
             }
         }
 
-        enum AssingInputAlert {
+        struct AssingInputAlert {
             static func message(_ variable: String) -> String {
                 return Strings.localizedString("Localizable", "main_scene.assing_input_alert.message", variable)
             }
             static let title = Strings.localizedString("Localizable", "main_scene.assing_input_alert.title")
         }
 
-        enum Cell {
+        struct Cell {
             static let assignTitle = Strings.localizedString("Localizable", "main_scene.cell.assign_title")
             static let managerTitle = Strings.localizedString("Localizable", "main_scene.cell.manager_title")
             static let projectTitle = Strings.localizedString("Localizable", "main_scene.cell.project_title")
