@@ -11,17 +11,14 @@ import UIKit
 final class MainSceneViewController: UIViewController {
 
     // MARK: Injections
-    private let teamService: TeamService = TeamServiceImpl.shared
+    private let teamService: TeamDataProviding = TeamDataProviderService(
+        apiService: ApiService(
+            executor: Request.Executor(),parseService: JSONParserService()
+        )
+    )
 
     // MARK: Views
-    private lazy var tableView: UITableView = {
-        let tv = UITableView(frame: .zero, style: .plain)
-        tv.register(cellType: MainSceneItemCell.self)
-        tv.dataSource = dataSource
-        tv.delegate = self
-        tv.refreshControl = refreshControl
-        return tv
-    }()
+    @IBOutlet private var tableView: UITableView!
 
     private lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -73,7 +70,8 @@ extension MainSceneViewController: MainSceneItemCellDelegate {
         )
 
         alert.addTextField(configurationHandler: nil)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in }))
+        alert.addAction(UIAlertAction(title: Strings.Common.cancel, style: .destructive, handler: { _ in }))
+        alert.addAction(UIAlertAction(title: Strings.Common.ok, style: .default, handler: { _ in }))
 
         present(alert, animated: true, completion: nil)
     }
@@ -99,24 +97,16 @@ private extension MainSceneViewController {
     }
 
     func setupTableView() {
-        view.addSubview(tableView)
-
-        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.showsVerticalScrollIndicator = false
-        tableView.estimatedRowHeight = 100
-        tableView.allowsSelection = false
-        tableView.separatorStyle = .none
+        tableView.register(cellType: MainSceneItemCell.self)
+        tableView.dataSource = dataSource
+        tableView.delegate = self
+        tableView.refreshControl = refreshControl
     }
 
     func setupNavigation() {
         let button = UIBarButtonItem(
-            barButtonSystemItem: UIBarButtonItem.SystemItem.edit,
+            title: Strings.MainScene.BarButton.title, style: .plain,
             target: self,
             action: #selector(filterButtonAction(_:))
         )

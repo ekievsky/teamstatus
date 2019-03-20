@@ -20,7 +20,7 @@
 "main_scene.cell.manager_title" = "Manager:";
 "main_scene.cell.status_title" = "Status:";
 "main_scene.cell.until_title" = "Until:";
-"main_scene.cell.working_hours_title" = "Working hours:";
+"main_scene.cell.working_hours_title" = "Hours:";
 "main_scene.cell.skills_title" = "Skills:";
 "main_scene.cell.assign_title" = "Assign";
 "main_scene.cell.working_status" = "Working";
@@ -29,6 +29,7 @@
 "main_scene.assing_input_alert.title" = "Assign";
 "main_scene.assing_input_alert.message" = "Enter the project that you would like to assing to %@";
 "main_scene.title" = "Team status";
+"main_scene.bar_button.title" = "Filter";
 
 "main_scene.action_sheet.title" = "Please select filter";
 "main_scene.action_sheet.action.get_list" = "Get list";

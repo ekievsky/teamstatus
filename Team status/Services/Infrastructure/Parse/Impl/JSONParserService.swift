@@ -8,9 +8,7 @@
 
 import SwiftyJSON
 
-final class ParseServiceImpl: ParseService {
-
-    static let shared: ParseService = ParseServiceImpl()
+final class JSONParserService: JSONParsing {
 
     func parseTeam(json: JSON) -> [Member] {
         let items = json["items"].arrayValue

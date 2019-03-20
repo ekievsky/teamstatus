@@ -33,8 +33,7 @@ final class MainSceneItemCell: UITableViewCell {
     @IBOutlet private var untilLabel: UILabel!
 
     @IBOutlet private var workingHoursTitleLabel: UILabel!
-    @IBOutlet private var fromLabel: UILabel!
-    @IBOutlet private var toLabel: UILabel!
+    @IBOutlet private var workingHoursLabel: UILabel!
 
     @IBOutlet private var skillsTitleLabel: UILabel!
     @IBOutlet private var skillsLabel: UILabel!
@@ -56,8 +55,7 @@ final class MainSceneItemCell: UITableViewCell {
         nameLabel.text = "\(member.firstName) \(member.lastName)"
         projectNameLabel.text = member.currentProject.projectName
         managerLabel.text = "\(member.manager.firstName) \(member.manager.lastName)"
-        fromLabel.text = "\(member.workingHours.start.time)"
-        toLabel.text = "\(member.workingHours.end.time)"
+        workingHoursLabel.text = "\(member.workingHours.start.time) - \(member.workingHours.end.time)"
         skillsLabel.text = member.skills.map { $0.name }.joined(separator: ", ")
 
         if member.isOnHolidays {

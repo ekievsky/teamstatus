@@ -8,9 +8,9 @@
 
 import Foundation
 
-final class TeamServiceImpl {
+final class TeamDataProviderService {
 
-    static let shared: TeamService = TeamServiceImpl(apiService: ApiServiceImpl.shared)
+    static let shared = ApiService.shared
 
     private let apiService: ApiService
 
@@ -19,7 +19,7 @@ final class TeamServiceImpl {
     }
 }
 
-extension TeamServiceImpl: TeamService {
+extension TeamDataProviderService: TeamDataProviding {
 
     func getTeam(page: Int, completion: PagingTeamMembersCompletion?) {
         apiService.getTeam(page: page, completion: completion)

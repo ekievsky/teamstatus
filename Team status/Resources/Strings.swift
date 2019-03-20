@@ -23,6 +23,10 @@ enum Strings {
 
     enum MainScene {
         static let title = Strings.localizedString("Localizable", "main_scene.title")
+
+        enum BarButton {
+            static let title = Strings.localizedString("Localizable", "main_scene.bar_button.title")
+        }
         
         enum ActionSheet {
             static let title = Strings.localizedString("Localizable", "main_scene.action_sheet.title")

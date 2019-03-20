@@ -1,5 +1,5 @@
 //
-//  ApiServiceImpl.swift
+//  APIServiceDataProvider.swift
 //  Team status
 //
 //  Created by Evgenii Kyivskyi on 2/2/19.
@@ -9,20 +9,21 @@
 import SwiftyJSON
 import Alamofire
 
-final class ApiServiceImpl {
+final class ApiService {
 
-    static let shared: ApiService = ApiServiceImpl(parseService: ParseServiceImpl.shared)
+    typealias PagingTeamMembersCompletion = (Result<([Member], PagingModel)>) -> Void
+    typealias TeamMembersCompletion = (Result<[Member]>) -> Void
 
-    private let executor = Request.Executor.shared
+    static let shared = ApiService(executor: Request.Executor(), parseService: JSONParserService())
+
     private let requestModelsFactory = Request.ModelsFactory.self
-    private let parseService: ParseService
+    private let executor: RequestExecuting
+    private let parseService: JSONParsing
 
-    init(parseService: ParseService) {
-        self.parseService = ParseServiceImpl()
+    init(executor: RequestExecuting, parseService: JSONParsing) {
+        self.parseService = parseService
+        self.executor = executor
     }
-}
-
-extension ApiServiceImpl: ApiService {
     
     func getTeam(page: Int, completion: PagingTeamMembersCompletion?) {
         executor.requestJSON(model: requestModelsFactory.getTeam(page: page))

@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol TeamService: class {
+protocol TeamDataProviding: class {
 
     typealias PagingTeamMembersCompletion = (Result<([Member], PagingModel)>) -> Void
 

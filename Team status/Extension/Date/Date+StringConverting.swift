@@ -15,7 +15,7 @@ extension Date {
     }
 
     var time: String {
-        return DateFormatter.time.string(from: self)
+        return DateFormatter.time.string(from: self).lowercased()
     }
 
     var fullDay: String {

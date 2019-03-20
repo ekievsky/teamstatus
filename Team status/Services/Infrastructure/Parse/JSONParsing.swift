@@ -8,7 +8,7 @@
 
 import SwiftyJSON
 
-protocol ParseService: class {
+protocol JSONParsing: class {
 
     func parseTeam(json: JSON) -> [Member]
 }

@@ -1,5 +1,5 @@
 //
-//  NetworkManager.swift
+//  RequestExecutor.swift
 //  Team status
 //
 //  Created by Evgenii Kyivskyi on 1/24/19.
@@ -14,20 +14,12 @@ class Request { }
 extension Request {
 
     final class Executor {
-
-        typealias BaseJSONResponse = (Result<JSON>) -> Void
-
-        static let shared = Executor()
-
-        private let manager : SessionManager
         
-        private init() {
-            self.manager = SessionManager(configuration: .default)
-        }
+        private let manager: SessionManager = SessionManager(configuration: .default)
     }
 }
 
-extension Request.Executor {
+extension Request.Executor: RequestExecuting {
 
     @discardableResult
     func requestJSON(model: Request.Model, completion: @escaping BaseJSONResponse) -> DataRequest {

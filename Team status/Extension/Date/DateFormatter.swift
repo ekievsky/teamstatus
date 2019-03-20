@@ -31,6 +31,6 @@ extension DateFormatter {
 
 extension DateFormatter {
     static let fullDateTimeFormat = "E MMM dd yyyy HH:mm:ss"
-    static let timeFormat = "HH:mm"
+    static let timeFormat = "Ha"
     static let fullDayFormat = "dd/MM/yyyy"
 }
